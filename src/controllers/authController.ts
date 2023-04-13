@@ -21,9 +21,9 @@ export const register = async (req: Request, res: Response) => {
     });
 
     // Create token
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
+    // const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
 
-    res.json({ token });
+    res.status(201).json({ user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
