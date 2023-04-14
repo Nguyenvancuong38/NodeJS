@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "npx ts-node src/index.ts",
+    "db:push": "npx prisma migrate dev --name init",
     "dev": "npx nodemon",
     "build": "tsc",
     "test": "jest"
@@ -37,5 +38,8 @@
     "testMatch": [
       "**/tests/**/*.test.ts"
     ]
+  },
+  "devDependencies": {
+    "prettier": "2.8.7"
   }
 }
