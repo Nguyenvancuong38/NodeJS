@@ -5,8 +5,18 @@ import router from './routes/auth';
 
 const app = express();
 
+const ORIGIN_LOCALHOST = process.env.ORIGIN_LOCALHOST;
+const ORIGIN_PRODUCT = process.env.ORIGIN_PRODUCT;
+
+const allowedOrigins: string[] = [ORIGIN_LOCALHOST, ORIGIN_PRODUCT];
+
+const corsOptions: cors.CorsOptions = {
+  origin: allowedOrigins,
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 // Middleware
-app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
